@@ -116,7 +116,6 @@ public class MainActivity extends AppCompatActivity {
                 message.setText("Circles win");
                 break;
             case IN_PROGRESS:
-                // WHY ????
                 break;
         }
     }
