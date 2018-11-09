@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
-        // Save the game and display message
+        // Save the game and display message in the bundle
         outState.putSerializable("gameClass", game);
         outState.putCharSequence("message", ((TextView) findViewById(R.id.textViewMessage)).getText());
     }
