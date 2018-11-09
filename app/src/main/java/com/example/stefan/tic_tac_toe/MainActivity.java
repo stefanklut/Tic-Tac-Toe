@@ -9,15 +9,20 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    // variables
+    // variable for the game
     Game game;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Restore the game and interface after closing or rotating
         if (savedInstanceState != null) {
+            // Restore game
             game = (Game) savedInstanceState.getSerializable("gameClass");
+
+            // Restore interface buttons
             TileState[][] board = game.getBoard();
             for (int i = 0; i<game.BOARD_SIZE; i++) {
                 for (int j = 0; j<game.BOARD_SIZE; j++) {
@@ -37,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             }
+
+            // Restore interface message
             CharSequence message = savedInstanceState.getCharSequence("message");
             ((TextView) findViewById(R.id.textViewMessage)).setText(message);
         } else {
@@ -47,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
+
+        // Save the game and display message
         outState.putSerializable("gameClass", game);
         outState.putCharSequence("message", ((TextView) findViewById(R.id.textViewMessage)).getText());
     }
@@ -93,24 +102,26 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
         }
+
+        // Check if the game is over and display the winner
         GameState gameState = game.won();
         switch (gameState) {
             case DRAW:
                 message.setText("Draw");
                 break;
             case PLAYER_ONE:
-                message.setText("Crosses wins");
+                message.setText("Crosses win");
                 break;
             case PLAYER_TWO:
-                message.setText("Circles wins");
+                message.setText("Circles win");
                 break;
             case IN_PROGRESS:
                 // WHY ????
                 break;
         }
-        Log.d("tic-tac-toe", "tileClicked: "+ gameState);
     }
 
+    // Resets the game by creating a new game and setting the interface to the default value
     public void resetClicked(View view) {
         game = new Game();
         setContentView(R.layout.activity_main);

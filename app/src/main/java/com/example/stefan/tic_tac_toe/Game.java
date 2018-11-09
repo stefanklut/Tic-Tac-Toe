@@ -2,6 +2,7 @@ package com.example.stefan.tic_tac_toe;
 
 import java.io.Serializable;
 
+// Game class
 public class Game implements Serializable {
     // Board specifications
     final public int BOARD_SIZE = 3;
@@ -23,10 +24,12 @@ public class Game implements Serializable {
         gameOver = false;
     }
 
+    // Returns the board
     public TileState[][] getBoard() {
         return board;
     }
 
+    // Select a tile and add the cross or circle depending on whose turn it is
     public TileState choose(int row, int column) {
         TileState tile = board[row][column];
 
@@ -48,6 +51,7 @@ public class Game implements Serializable {
         }
     }
 
+    // Check if a win condition was met
     public GameState won() {
         TileState checkTile;
         GameState winner;
