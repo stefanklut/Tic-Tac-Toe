@@ -24,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
 
             // Restore interface buttons
             TileState[][] board = game.getBoard();
-            for (int i = 0; i<game.BOARD_SIZE; i++) {
-                for (int j = 0; j<game.BOARD_SIZE; j++) {
+            for (int i = 0; i<game.getBOARD_SIZE(); i++) {
+                for (int j = 0; j<game.getBOARD_SIZE(); j++) {
                     if (board[i][j] == TileState.CROSS){
                         int buttonId = getResources().getIdentifier(
                                 "buttonR"+i+"C"+j,
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void tileClicked(View view) {
         // Ignore button input if the game is over
-        if (game.gameOver) {
+        if (game.isGameOver()) {
             return;
         }
 
@@ -72,8 +72,8 @@ public class MainActivity extends AppCompatActivity {
         TextView message = (TextView) findViewById(R.id.textViewMessage);
 
         // Loop over the board to check what button was pressed
-        for (int i=0;i<game.BOARD_SIZE;i++) {
-            for (int j=0;j<game.BOARD_SIZE;j++){
+        for (int i=0;i<game.getBOARD_SIZE();i++) {
+            for (int j=0;j<game.getBOARD_SIZE();j++){
                 int buttonId = getResources().getIdentifier(
                         "buttonR"+i+"C"+j,
                         "id",

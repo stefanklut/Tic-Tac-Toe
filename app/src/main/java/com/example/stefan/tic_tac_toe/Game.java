@@ -5,13 +5,13 @@ import java.io.Serializable;
 // Game class
 public class Game implements Serializable {
     // Board specifications
-    final public int BOARD_SIZE = 3;
+    final private int BOARD_SIZE = 3;
     private TileState[][] board;
 
     // variables
     private boolean playerOneTurn;  // true if player 1's turn, false if player 2's turn
     private int movesPlayed;
-    public boolean gameOver;
+    private boolean gameOver;
 
     // Constructor for Game that fills the board with BLANK
     public Game() {
@@ -22,6 +22,16 @@ public class Game implements Serializable {
 
         playerOneTurn = true;
         gameOver = false;
+    }
+
+    // Returns board size
+    public int getBOARD_SIZE() {
+        return BOARD_SIZE;
+    }
+
+    // Returns if the game is over
+    public boolean isGameOver() {
+        return gameOver;
     }
 
     // Returns the board
