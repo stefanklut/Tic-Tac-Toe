@@ -11,14 +11,14 @@ An app that lets you play Tic-Tac-Toe with a friend. The interface is a grid of 
 ## Screenshots
 
 ### Opening Screen:
-<img src="doc/Screenshot_20181109-133833.png" width="50%">
+<img src="doc/Screenshot_20181109-133833.png" width="30%">
 
 ### Some tile filled in:
-<img src="doc/Screenshot_20181109-133847.png" width="50%">
+<img src="doc/Screenshot_20181109-133847.png" width="30%">
 
 ### Crosses is the winner:
-<img src="doc/Screenshot_20181109-133857.png" width="50%">
+<img src="doc/Screenshot_20181109-133857.png" width="30%">
 
 ### Landscape mode:
-<img src="doc/Screenshot_20181109-133915.png" width="100%">
+<img src="doc/Screenshot_20181109-133915.png" width="60%">
       
